@@ -26,14 +26,12 @@ export function App() {
       <TitleBar
         icon={<img alt="icon" src={icon} style={{ height: '100%' }} />} // app icon
         // currentWindow={currentWindow} // electron window instance
-        platform="win32" // win32, darwin, linux
         // menu={menu}
+        platform="win32" // win32, darwin, linux
         title="Desktoys"
-        // onClose={() => currentWindow.close()}
-        // onMinimize={() => currentWindow.minimize()}
-        // onMaximize={() => currentWindow.maximize()}
-        // // when the titlebar is double clicked
-        // onDoubleClick={() => currentWindow.maximize()}
+        onClose={() => (window as any).api.closeWindow()}
+        disableMaximize={true}
+        disableMinimize={true}
       />
       <Switch>
         <Route exact path="/" component={HomePage} />
