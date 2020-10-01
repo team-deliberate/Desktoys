@@ -1,0 +1,37 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  pointer-events: none;
+  overflow: hidden;
+}
+* {
+  pointer-events: all;
+}
+
+div#root {
+  height: 100%;
+  /* consider adding overflow scrollbars here, so they don't appear within the main div */
+}
+
+/* Removes any selection color or background */
+::selection {
+  color: none;
+  background: none;
+}
+::-moz-selection {
+  color: none;
+  background: none;
+}
+
+/* Prevents dragging of any element */
+*,
+*::after,
+*::before {
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-app-region: no-drag;
+  cursor: default;
+}

@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    height: 300px;
   }
 
   #root {

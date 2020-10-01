@@ -14,14 +14,18 @@ function createWindow() {
     });
   mainWindow = new BrowserWindow({
     width: 600,
-    height: 300,
+    height: 328,
     minWidth: 600, // set a min width!
-    minHeight: 300, // and a min height!
+    minHeight: 328, // and a min height!
     frame: false,
     titleBarStyle: 'hidden',
     minimizable: false,
     maximizable: false,
     resizable: false,
+    focusable: false,
+    fullscreen: true,
+    transparent: true,
+    alwaysOnTop: true,
     webPreferences: {
       nodeIntegration: false, // is default value after Electron v5
       contextIsolation: true, // protect against prototype pollution
@@ -36,8 +40,16 @@ function createWindow() {
   });
 }
 
+// preload.js related events
 ipcMain.on('close-window-event', (event, arg) => {
   mainWindow.close();
+});
+ipcMain.on('toggle-mouse-ignore', (event, state) => {
+  if (state) {
+    mainWindow.setIgnoreMouseEvents(state, { forward: true });
+  } else {
+    mainWindow.setIgnoreMouseEvents(state);
+  }
 });
 
 app.on('ready', createWindow);

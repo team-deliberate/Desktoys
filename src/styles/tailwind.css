@@ -1,5 +1,9 @@
 @tailwind base;
 
+div#root {
+    @apply font-body;
+}
+
 @tailwind components;
 
 @tailwind utilities;

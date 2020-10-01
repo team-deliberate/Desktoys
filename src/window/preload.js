@@ -6,4 +6,7 @@ contextBridge.exposeInMainWorld('api', {
   closeWindow: (channel, data) => {
     ipcRenderer.send('close-window-event');
   },
+  toggleMouseIgnore: value => {
+    ipcRenderer.send('toggle-mouse-ignore', value);
+  },
 });
